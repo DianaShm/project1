@@ -485,8 +485,18 @@ void solve_wiseman(struct command_t* command) {
 
 }
 
+// Diana's custom command
 void solve_myfactor(struct command_t* command) {
-  
+  int n = command->args[2];
+  printf("%d", n);
+  for (int d = 2; d <= n-1; ++d) {
+    if (n % d != 0) continue;
+    while (n % d == 0) {
+      printf("%d", d);
+      n /= d;
+    }
+  }
+  if (n != 1) printf("%d", n);
 }
 
 void resolve_command(char *command_name, char *pth) {
